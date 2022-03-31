@@ -1,7 +1,10 @@
 package com.example.Ferreteria.repository;
 
-import com.example.Ferreteria.model.DTO.ProveedorDTO;
+import com.example.Ferreteria.model.ProveedorModel;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ProveedorRepository extends ReactiveMongoRepository<ProveedorDTO, String> {
+
+@Repository
+public interface ProveedorRepository extends ReactiveMongoRepository<ProveedorModel, String> {
 }

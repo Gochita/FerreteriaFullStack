@@ -1,7 +1,11 @@
 package com.example.Ferreteria.repository;
 
+import com.example.Ferreteria.model.ClienteModel;
 import com.example.Ferreteria.model.DTO.ClienteDTO;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ClienteRepository extends ReactiveMongoRepository<ClienteDTO, String> {
+
+@Repository
+public interface ClienteRepository extends ReactiveMongoRepository<ClienteModel, String> {
 }
