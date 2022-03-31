@@ -3,47 +3,45 @@ package com.example.Ferreteria.model.DTO;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.UUID;
 
-@Data
+
 public class ClienteDTO {
-    private String idClienteDTO = UUID.randomUUID().toString().substring(0, 10);
-    private String nombreClienteDTO;
-    private int telefonoClienteDTO;
+    private String idCliente;
+    private String nombreCliente;
+    private int telefonoCliente;
     private String cedCliente;
 
-    public ClienteDTO(String idClienteDTO, String nombreClienteDTO, int telefonoClienteDTO, String cedCliente) {
-        this.idClienteDTO = idClienteDTO;
-        this.nombreClienteDTO = nombreClienteDTO;
-        this.telefonoClienteDTO = telefonoClienteDTO;
+    public ClienteDTO( String nombreCliente, int telefonoCliente, String cedCliente) {
+        this.nombreCliente = nombreCliente;
+        this.telefonoCliente = telefonoCliente;
         this.cedCliente = cedCliente;
     }
 
     public ClienteDTO() {
     }
 
-    public String getIdClienteDTO() {
-        return idClienteDTO;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdClienteDTO(String idClienteDTO) {
-        this.idClienteDTO = idClienteDTO;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public String getNombreClienteDTO() {
-        return nombreClienteDTO;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNombreClienteDTO(String nombreClienteDTO) {
-        this.nombreClienteDTO = nombreClienteDTO;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public int getTelefonoClienteDTO() {
-        return telefonoClienteDTO;
+    public int getTelefonoCliente() {
+        return telefonoCliente;
     }
 
-    public void setTelefonoClienteDTO(int telefonoClienteDTO) {
-        this.telefonoClienteDTO = telefonoClienteDTO;
+    public void setTelefonoCliente(int telefonoCliente) {
+        this.telefonoCliente = telefonoCliente;
     }
 
     public String getCedCliente() {
@@ -57,9 +55,9 @@ public class ClienteDTO {
     @Override
     public String toString() {
         return "ClienteDTO{" +
-                "idClienteDTO='" + idClienteDTO + '\'' +
-                ", nombreClienteDTO='" + nombreClienteDTO + '\'' +
-                ", telefonoClienteDTO=" + telefonoClienteDTO +
+                "idClienteDTO='" + idCliente + '\'' +
+                ", nombreClienteDTO='" + nombreCliente + '\'' +
+                ", telefonoClienteDTO=" + telefonoCliente +
                 ", cedCliente='" + cedCliente + '\'' +
                 '}';
     }
@@ -69,11 +67,11 @@ public class ClienteDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClienteDTO that = (ClienteDTO) o;
-        return telefonoClienteDTO == that.telefonoClienteDTO && Objects.equals(idClienteDTO, that.idClienteDTO) && Objects.equals(nombreClienteDTO, that.nombreClienteDTO) && Objects.equals(cedCliente, that.cedCliente);
+        return telefonoCliente == that.telefonoCliente && Objects.equals(idCliente, that.idCliente) && Objects.equals(nombreCliente, that.nombreCliente) && Objects.equals(cedCliente, that.cedCliente);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idClienteDTO, nombreClienteDTO, telefonoClienteDTO, cedCliente);
+        return Objects.hash(idCliente, nombreCliente, telefonoCliente, cedCliente);
     }
 }

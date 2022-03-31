@@ -4,65 +4,65 @@ package com.example.Ferreteria.model.DTO;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.UUID;
+
 
 @Data
 public class ProveedorDTO {
 
-    private String idProveedorDTO = UUID.randomUUID().toString().substring(0, 10);
-    private String nombreProveedorDTO;
-    private int telefonoProveedorDTO;
-    private String cedProveedorDTO;
+    private String idProveedor;
+    private String nombreProveedor;
+    private int telefonoProveedor;
+    private String cedProveedor;
 
-    public ProveedorDTO(String idProveedorDTO, String nombreProveedorDTO, int telefonoProveedorDTO, String cedProveedorDTO) {
-        this.idProveedorDTO = idProveedorDTO;
-        this.nombreProveedorDTO = nombreProveedorDTO;
-        this.telefonoProveedorDTO = telefonoProveedorDTO;
-        this.cedProveedorDTO = cedProveedorDTO;
+    public ProveedorDTO(String idProveedor, String nombreProveedor, int telefonoProveedor, String cedProveedor) {
+        this.idProveedor = idProveedor;
+        this.nombreProveedor = nombreProveedor;
+        this.telefonoProveedor = telefonoProveedor;
+        this.cedProveedor = cedProveedor;
     }
 
     public ProveedorDTO() {
     }
 
-    public String getIdProveedorDTO() {
-        return idProveedorDTO;
+    public String getIdProveedor() {
+        return idProveedor;
     }
 
-    public void setIdProveedorDTO(String idProveedorDTO) {
-        this.idProveedorDTO = idProveedorDTO;
+    public void setIdProveedor(String idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
-    public String getNombreProveedorDTO() {
-        return nombreProveedorDTO;
+    public String getNombreProveedor() {
+        return nombreProveedor;
     }
 
-    public void setNombreProveedorDTO(String nombreProveedorDTO) {
-        this.nombreProveedorDTO = nombreProveedorDTO;
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
     }
 
-    public int getTelefonoProveedorDTO() {
-        return telefonoProveedorDTO;
+    public int getTelefonoProveedor() {
+        return telefonoProveedor;
     }
 
-    public void setTelefonoProveedorDTO(int telefonoProveedorDTO) {
-        this.telefonoProveedorDTO = telefonoProveedorDTO;
+    public void setTelefonoProveedor(int telefonoProveedor) {
+        this.telefonoProveedor = telefonoProveedor;
     }
 
-    public String getCedProveedorDTO() {
-        return cedProveedorDTO;
+    public String getCedProveedor() {
+        return cedProveedor;
     }
 
-    public void setCedProveedorDTO(String cedProveedorDTO) {
-        this.cedProveedorDTO = cedProveedorDTO;
+    public void setCedProveedor(String cedProveedor) {
+        this.cedProveedor = cedProveedor;
     }
 
     @Override
     public String toString() {
         return "ProveedorDTO{" +
-                "idProveedorDTO='" + idProveedorDTO + '\'' +
-                ", nombreProveedorDTO='" + nombreProveedorDTO + '\'' +
-                ", telefonoProveedorDTO=" + telefonoProveedorDTO +
-                ", cedProveedorDTO='" + cedProveedorDTO + '\'' +
+                "idProveedorDTO='" + idProveedor + '\'' +
+                ", nombreProveedorDTO='" + nombreProveedor + '\'' +
+                ", telefonoProveedorDTO=" + telefonoProveedor +
+                ", cedProveedorDTO='" + cedProveedor + '\'' +
                 '}';
     }
 
@@ -71,11 +71,11 @@ public class ProveedorDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProveedorDTO that = (ProveedorDTO) o;
-        return telefonoProveedorDTO == that.telefonoProveedorDTO && Objects.equals(idProveedorDTO, that.idProveedorDTO) && Objects.equals(nombreProveedorDTO, that.nombreProveedorDTO) && Objects.equals(cedProveedorDTO, that.cedProveedorDTO);
+        return telefonoProveedor == that.telefonoProveedor && Objects.equals(idProveedor, that.idProveedor) && Objects.equals(nombreProveedor, that.nombreProveedor) && Objects.equals(cedProveedor, that.cedProveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProveedorDTO, nombreProveedorDTO, telefonoProveedorDTO, cedProveedorDTO);
+        return Objects.hash(idProveedor, nombreProveedor, telefonoProveedor, cedProveedor);
     }
 }

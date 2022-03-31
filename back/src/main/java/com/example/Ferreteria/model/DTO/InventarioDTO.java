@@ -1,32 +1,31 @@
 package com.example.Ferreteria.model.DTO;
 
-import com.example.Ferreteria.model.ProductoModel;
 import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.UUID;
+
 
 
 @Data
 public class InventarioDTO {
-    private String idInventarioDTO= UUID.randomUUID().toString().substring(0, 10);
+    private String idInventario;
     private HashMap<ProductoDTO, Integer> listaProductosDTO;
 
-    public InventarioDTO(String idInventarioDTO, HashMap<ProductoDTO, Integer> listaProductosDTO) {
-        this.idInventarioDTO = idInventarioDTO;
+    public InventarioDTO(String idInventario, HashMap<ProductoDTO, Integer> listaProductosDTO) {
+        this.idInventario = idInventario;
         this.listaProductosDTO = listaProductosDTO;
     }
 
     public InventarioDTO() {
     }
 
-    public String getIdInventarioDTO() {
-        return idInventarioDTO;
+    public String getIdInventario() {
+        return idInventario;
     }
 
-    public void setIdInventarioDTO(String idInventarioDTO) {
-        this.idInventarioDTO = idInventarioDTO;
+    public void setIdInventario(String idInventario) {
+        this.idInventario = idInventario;
     }
 
     public HashMap<ProductoDTO, Integer> getListaProductosDTO() {
@@ -40,7 +39,7 @@ public class InventarioDTO {
     @Override
     public String toString() {
         return "InventarioDTO{" +
-                "idInventarioDTO='" + idInventarioDTO + '\'' +
+                "idInventarioDTO='" + idInventario + '\'' +
                 ", listaProductosDTO=" + listaProductosDTO +
                 '}';
     }
@@ -50,12 +49,12 @@ public class InventarioDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InventarioDTO that = (InventarioDTO) o;
-        return Objects.equals(idInventarioDTO, that.idInventarioDTO) && Objects.equals(listaProductosDTO, that.listaProductosDTO);
+        return Objects.equals(idInventario, that.idInventario) && Objects.equals(listaProductosDTO, that.listaProductosDTO);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idInventarioDTO, listaProductosDTO);
+        return Objects.hash(idInventario, listaProductosDTO);
     }
 
 }

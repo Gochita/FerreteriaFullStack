@@ -3,67 +3,67 @@ package com.example.Ferreteria.model.DTO;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.UUID;
+
 
 
 @Data
 public class ProductoDTO {
-    private String idProductoDto = UUID.randomUUID().toString().substring(0, 10);
-    private String nombreProductoDTO;
-    private double precioProductoDTO;
-    private String idProveedorDTO;
+    private String idProducto;
+    private String nombreProducto;
+    private double precioProducto;
+    private String idProveedor;
 
-    public ProductoDTO(String idProductoDto, String nombreProductoDTO, double precioProductoDTO, String idProveedorDTO) {
-        this.idProductoDto = idProductoDto;
-        this.nombreProductoDTO = nombreProductoDTO;
+    public ProductoDTO(String idProducto, String nombreProducto, double precioProducto, String idProveedor) {
+        this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
 
-        this.precioProductoDTO = precioProductoDTO;
-        this.idProveedorDTO = idProveedorDTO;
+        this.precioProducto = precioProducto;
+        this.idProveedor = idProveedor;
     }
 
     public ProductoDTO() {
 
     }
 
-    public String getIdProductoDto() {
-        return idProductoDto;
+    public String getIdProducto() {
+        return idProducto;
     }
 
-    public void setIdProductoDto(String idProductoDto) {
-        this.idProductoDto = idProductoDto;
+    public void setIdProducto(String idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public String getNombreProductoDTO() {
-        return nombreProductoDTO;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setNombreProductoDTO(String nombreProductoDTO) {
-        this.nombreProductoDTO = nombreProductoDTO;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
-    public double getPrecioProductoDTO() {
-        return precioProductoDTO;
+    public double getPrecioProducto() {
+        return precioProducto;
     }
 
-    public void setPrecioProductoDTO(double precioProductoDTO) {
-        this.precioProductoDTO = precioProductoDTO;
+    public void setPrecioProducto(double precioProducto) {
+        this.precioProducto = precioProducto;
     }
 
-    public String getIdProveedorDTO() {
-        return idProveedorDTO;
+    public String getIdProveedor() {
+        return idProveedor;
     }
 
-    public void setIdProveedorDTO(String idProveedorDTO) {
-        this.idProveedorDTO = idProveedorDTO;
+    public void setIdProveedor(String idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     @Override
     public String toString() {
         return "ProductoDTO{" +
-                "idProductoDto='" + idProductoDto + '\'' +
-                ", nombreProductoDTO='" + nombreProductoDTO + '\'' +
-                ", precioProductoDTO=" + precioProductoDTO +
-                ", idProveedorDTO='" + idProveedorDTO + '\'' +
+                "idProductoDto='" + idProducto + '\'' +
+                ", nombreProductoDTO='" + nombreProducto + '\'' +
+                ", precioProductoDTO=" + precioProducto +
+                ", idProveedorDTO='" + idProveedor + '\'' +
                 '}';
     }
 
@@ -72,11 +72,11 @@ public class ProductoDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoDTO that = (ProductoDTO) o;
-        return Double.compare(that.precioProductoDTO, precioProductoDTO) == 0 && Objects.equals(idProductoDto, that.idProductoDto) && Objects.equals(nombreProductoDTO, that.nombreProductoDTO)&& Objects.equals(idProveedorDTO, that.idProveedorDTO);
+        return Double.compare(that.precioProducto, precioProducto) == 0 && Objects.equals(idProducto, that.idProducto) && Objects.equals(nombreProducto, that.nombreProducto)&& Objects.equals(idProveedor, that.idProveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProductoDto, nombreProductoDTO, precioProductoDTO, idProveedorDTO);
+        return Objects.hash(idProducto, nombreProducto, precioProducto, idProveedor);
     }
 }

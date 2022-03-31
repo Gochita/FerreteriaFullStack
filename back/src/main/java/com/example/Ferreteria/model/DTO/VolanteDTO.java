@@ -5,22 +5,21 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.UUID;
 
 
 @Data
 public class VolanteDTO {
 
-    private String idVolanteDTO= UUID.randomUUID().toString().substring(0, 10);
+    private String idVolante;
     private String nombreProveedor;
-    private HashMap<ProductoDTO, Integer> listaProductosDTO;
+    private HashMap<ProductoDTO, Integer> listaProductosVolante;
     private LocalDate fecha;
     private String cedProveedor;
 
-    public VolanteDTO(String idVolanteDTO, String nombreProveedor, HashMap<ProductoDTO, Integer> listaProductosDTO, LocalDate fecha, String cedProveedor) {
-        this.idVolanteDTO = idVolanteDTO;
+    public VolanteDTO(String idVolante, String nombreProveedor, HashMap<ProductoDTO, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
+        this.idVolante = idVolante;
         this.nombreProveedor = nombreProveedor;
-        this.listaProductosDTO = listaProductosDTO;
+        this.listaProductosVolante = listaProductosVolante;
         this.fecha = fecha;
         this.cedProveedor = cedProveedor;
     }
@@ -28,12 +27,12 @@ public class VolanteDTO {
     public VolanteDTO() {
     }
 
-    public String getIdVolanteDTO() {
-        return idVolanteDTO;
+    public String getIdVolante() {
+        return idVolante;
     }
 
-    public void setIdVolanteDTO(String idVolanteDTO) {
-        this.idVolanteDTO = idVolanteDTO;
+    public void setIdVolante(String idVolante) {
+        this.idVolante = idVolante;
     }
 
     public String getNombreProveedor() {
@@ -44,12 +43,12 @@ public class VolanteDTO {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public HashMap<ProductoDTO, Integer> getListaProductosDTO() {
-        return listaProductosDTO;
+    public HashMap<ProductoDTO, Integer> getListaProductosVolante() {
+        return listaProductosVolante;
     }
 
-    public void setListaProductosDTO(HashMap<ProductoDTO, Integer> listaProductosDTO) {
-        this.listaProductosDTO = listaProductosDTO;
+    public void setListaProductosVolante(HashMap<ProductoDTO, Integer> listaProductosVolante) {
+        this.listaProductosVolante = listaProductosVolante;
     }
 
     public LocalDate getFecha() {
@@ -73,20 +72,20 @@ public class VolanteDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VolanteDTO that = (VolanteDTO) o;
-        return Objects.equals(idVolanteDTO, that.idVolanteDTO) && Objects.equals(nombreProveedor, that.nombreProveedor) && Objects.equals(listaProductosDTO, that.listaProductosDTO) && Objects.equals(fecha, that.fecha) && Objects.equals(cedProveedor, that.cedProveedor);
+        return Objects.equals(idVolante, that.idVolante) && Objects.equals(nombreProveedor, that.nombreProveedor) && Objects.equals(listaProductosVolante, that.listaProductosVolante) && Objects.equals(fecha, that.fecha) && Objects.equals(cedProveedor, that.cedProveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idVolanteDTO, nombreProveedor, listaProductosDTO, fecha, cedProveedor);
+        return Objects.hash(idVolante, nombreProveedor, listaProductosVolante, fecha, cedProveedor);
     }
 
     @Override
     public String toString() {
         return "VolanteDTO{" +
-                "idVolanteDTO='" + idVolanteDTO + '\'' +
+                "idVolanteDTO='" + idVolante + '\'' +
                 ", nombreProveedor='" + nombreProveedor + '\'' +
-                ", listaProductosDTO=" + listaProductosDTO +
+                ", listaProductosDTO=" + listaProductosVolante +
                 ", fecha=" + fecha +
                 ", cedProveedor='" + cedProveedor + '\'' +
                 '}';
