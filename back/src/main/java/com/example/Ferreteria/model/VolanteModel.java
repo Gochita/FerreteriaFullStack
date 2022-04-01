@@ -2,6 +2,7 @@ package com.example.Ferreteria.model;
 
 
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -12,14 +13,14 @@ import java.util.UUID;
 @Document(collection = "Volante")
 public class VolanteModel {
 
-    private String idVolante= UUID.randomUUID().toString().substring(0, 10);
+    @Id
+    @NonNull private String idVolante= UUID.randomUUID().toString().substring(0, 10);
     @NonNull private String nombreProveedor;
-    @NonNull private HashMap<ProductoModel,Integer> listaProductosVolante;
+    @NonNull private HashMap<String,Integer> listaProductosVolante;
     @NonNull private LocalDate fecha;
     @NonNull private String cedProveedor;
 
-    public VolanteModel(String idVolante, String nombreProveedor, HashMap<ProductoModel, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
-        this.idVolante = idVolante;
+    public VolanteModel( String nombreProveedor, HashMap<String, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.listaProductosVolante = listaProductosVolante;
         this.fecha = fecha;
@@ -45,11 +46,11 @@ public class VolanteModel {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public HashMap<ProductoModel, Integer> getListaProductosVolante() {
+    public HashMap<String, Integer> getListaProductosVolante() {
         return listaProductosVolante;
     }
 
-    public void setListaProductosVolante(HashMap<ProductoModel, Integer> listaProductosVolante) {
+    public void setListaProductosVolante(HashMap<String, Integer> listaProductosVolante) {
         this.listaProductosVolante = listaProductosVolante;
     }
 

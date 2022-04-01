@@ -2,6 +2,7 @@ package com.example.Ferreteria.model.DTO;
 
 import lombok.Data;
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -10,15 +11,14 @@ import java.util.Objects;
 
 @Data
 public class VolanteDTO {
-
-    private String idVolante;
+    @Id
+    @NonNull private String idVolante;
     @NonNull private String nombreProveedor;
-    @NonNull private HashMap<ProductoDTO, Integer> listaProductosVolante;
+    @NonNull private HashMap<String, Integer> listaProductosVolante;
     @NonNull private LocalDate fecha;
     @NonNull private String cedProveedor;
 
-    public VolanteDTO(String idVolante, String nombreProveedor, HashMap<ProductoDTO, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
-        this.idVolante = idVolante;
+    public VolanteDTO( String nombreProveedor, HashMap<String, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.listaProductosVolante = listaProductosVolante;
         this.fecha = fecha;
@@ -44,11 +44,11 @@ public class VolanteDTO {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public HashMap<ProductoDTO, Integer> getListaProductosVolante() {
+    public HashMap<String, Integer> getListaProductosVolante() {
         return listaProductosVolante;
     }
 
-    public void setListaProductosVolante(HashMap<ProductoDTO, Integer> listaProductosVolante) {
+    public void setListaProductosVolante(HashMap<String, Integer> listaProductosVolante) {
         this.listaProductosVolante = listaProductosVolante;
     }
 

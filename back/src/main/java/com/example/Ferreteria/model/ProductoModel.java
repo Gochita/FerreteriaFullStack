@@ -14,16 +14,26 @@ public class ProductoModel {
     @Id
     private String idProducto = UUID.randomUUID().toString().substring(0, 10);
     @NonNull private String nombreProducto;
-    @NonNull private double precioProducto;
+    @NonNull private Double precioProducto;
     @NonNull private String idProveedor;
+    @NonNull private Integer stock;
 
     public ProductoModel() {
     }
 
-    public ProductoModel( String nombreProducto, double precioProducto, String idProveedor) {
+    public ProductoModel(@NonNull String nombreProducto, @NonNull Double precioProducto, @NonNull String idProveedor, @NonNull Integer stock) {
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.idProveedor = idProveedor;
+        this.stock = stock;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public String getIdProducto() {
@@ -48,7 +58,7 @@ public class ProductoModel {
         return precioProducto;
     }
 
-    public void setPrecioProducto(double precioProducto) {
+    public void setPrecioProducto(Double precioProducto) {
         this.precioProducto = precioProducto;
     }
 
@@ -66,9 +76,9 @@ public class ProductoModel {
         return "ProductoModel{" +
                 "idProducto='" + idProducto + '\'' +
                 ", nombreProducto='" + nombreProducto + '\'' +
-
                 ", precioProducto=" + precioProducto +
                 ", idProveedor='" + idProveedor + '\'' +
+                ", stock=" + stock +
                 '}';
     }
 
@@ -77,11 +87,11 @@ public class ProductoModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoModel that = (ProductoModel) o;
-        return Double.compare(that.precioProducto, precioProducto) == 0 && Objects.equals(idProducto, that.idProducto) && Objects.equals(nombreProducto, that.nombreProducto)  && Objects.equals(idProveedor, that.idProveedor);
+        return Objects.equals(idProducto, that.idProducto) && nombreProducto.equals(that.nombreProducto) && precioProducto.equals(that.precioProducto) && idProveedor.equals(that.idProveedor) && stock.equals(that.stock);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProducto, nombreProducto,  precioProducto, idProveedor);
+        return Objects.hash(idProducto, nombreProducto, precioProducto, idProveedor, stock);
     }
 }

@@ -13,6 +13,7 @@ public class FacturaService {
     @Autowired
     FacturaRepository facturaRepository;
     public Mono<FacturaModel> saveFactura (FacturaModel facturaModel){
+       /*
         FacturaModel factura= new FacturaModel();
         factura.setFechaFactura(facturaModel.getFechaFactura());
         factura.setConsec(facturaModel.getConsec());
@@ -20,8 +21,10 @@ public class FacturaService {
         factura.setNombreCliente(facturaModel.getNombreCliente());
         factura.setNombreVendedor(facturaModel.getNombreVendedor());
         factura.setIdCliente(facturaModel.getIdCliente());
-        facturaModel.setTotalPagar(facturaModel.getTotalPagar());
-        return this.saveFactura(factura);
+        factura.setTotalPagar(facturaModel.getTotalPagar());
+
+        */
+        return this.facturaRepository.save(facturaModel);
     }
     public Flux<FacturaModel> findAll(){
         return this.facturaRepository.findAll();

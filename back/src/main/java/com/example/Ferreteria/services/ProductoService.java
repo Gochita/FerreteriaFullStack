@@ -45,6 +45,7 @@ public class ProductoService  {
                     p.setNombreProducto(productoModel.getNombreProducto());
                     p.setPrecioProducto(productoModel.getPrecioProducto());
                     p.setIdProveedor(productoModel.getIdProveedor());
+                    p.setStock(productoModel.getStock());
                     return saveProducto(p);
                 })
                 .switchIfEmpty(Mono.empty());

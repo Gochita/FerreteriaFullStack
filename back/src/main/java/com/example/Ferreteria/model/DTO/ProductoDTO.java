@@ -15,16 +15,29 @@ public class ProductoDTO {
     @NonNull private String nombreProducto;
     @NonNull private Double precioProducto;
     @NonNull private String idProveedor;
+    @NonNull private Integer stock;
 
-    public ProductoDTO(String nombreProducto, double precioProducto, String idProveedor) {
-
+    public ProductoDTO(@NonNull String nombreProducto, @NonNull Double precioProducto, @NonNull String idProveedor, @NonNull Integer stock) {
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.idProveedor = idProveedor;
+        this.stock = stock;
     }
 
     public ProductoDTO() {
 
+    }
+
+    public void setPrecioProducto(Double precioProducto) {
+        this.precioProducto = precioProducto;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public String getIdProducto() {
@@ -43,14 +56,6 @@ public class ProductoDTO {
         this.nombreProducto = nombreProducto;
     }
 
-    public double getPrecioProducto() {
-        return precioProducto;
-    }
-
-    public void setPrecioProducto(double precioProducto) {
-        this.precioProducto = precioProducto;
-    }
-
     public String getIdProveedor() {
         return idProveedor;
     }
@@ -60,25 +65,26 @@ public class ProductoDTO {
     }
 
     @Override
-    public String toString() {
-        return "ProductoDTO{" +
-                "idProductoDto='" + idProducto + '\'' +
-                ", nombreProductoDTO='" + nombreProducto + '\'' +
-                ", precioProductoDTO=" + precioProducto +
-                ", idProveedorDTO='" + idProveedor + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoDTO that = (ProductoDTO) o;
-        return Double.compare(that.precioProducto, precioProducto) == 0 && Objects.equals(idProducto, that.idProducto) && Objects.equals(nombreProducto, that.nombreProducto)&& Objects.equals(idProveedor, that.idProveedor);
+        return Objects.equals(idProducto, that.idProducto) && nombreProducto.equals(that.nombreProducto) && precioProducto.equals(that.precioProducto) && idProveedor.equals(that.idProveedor) && stock.equals(that.stock);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProducto, nombreProducto, precioProducto, idProveedor);
+        return Objects.hash(idProducto, nombreProducto, precioProducto, idProveedor, stock);
+    }
+
+    @Override
+    public String toString() {
+        return "ProductoDTO{" +
+                "idProducto='" + idProducto + '\'' +
+                ", nombreProducto='" + nombreProducto + '\'' +
+                ", precioProducto=" + precioProducto +
+                ", idProveedor='" + idProveedor + '\'' +
+                ", stock=" + stock +
+                '}';
     }
 }

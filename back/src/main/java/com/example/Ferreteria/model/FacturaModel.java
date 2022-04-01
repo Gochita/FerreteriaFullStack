@@ -8,21 +8,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.UUID;
 
 @Document(collection = "Factura")
 public class FacturaModel {
 
     @Id
-    private String idFactura;
+    private String idFactura= UUID.randomUUID().toString().substring(0, 10);
     @NonNull private Integer consec;
     @NonNull private LocalDate fechaFactura;
     @NonNull private String nombreVendedor;
     @NonNull private String nombreCliente;
     @NonNull private String idCliente;
-    @NonNull private int totalPagar;
-    @NonNull private HashMap<ProductoModel,Integer> listaProductosFactura;
+    @NonNull private Integer totalPagar;
+    @NonNull private HashMap<String,Integer> listaProductosFactura;
 
-    public FacturaModel(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, String idCliente, int totalPagar, HashMap<ProductoModel, Integer> listaProductosFactura) {
+    public FacturaModel(@NonNull Integer consec, @NonNull LocalDate fechaFactura, @NonNull String nombreVendedor, @NonNull String nombreCliente, @NonNull String idCliente, @NonNull Integer totalPagar, @NonNull HashMap<String, Integer> listaProductosFactura) {
         this.consec = consec;
         this.fechaFactura = fechaFactura;
         this.nombreVendedor = nombreVendedor;
@@ -83,19 +84,19 @@ public class FacturaModel {
         this.idCliente = idCliente;
     }
 
-    public int getTotalPagar() {
+    public Integer getTotalPagar() {
         return totalPagar;
     }
 
-    public void setTotalPagar(int totalPagar) {
+    public void setTotalPagar(Integer totalPagar) {
         this.totalPagar = totalPagar;
     }
 
-    public HashMap<ProductoModel, Integer> getListaProductosFactura() {
+    public HashMap<String, Integer> getListaProductosFactura() {
         return listaProductosFactura;
     }
 
-    public void setListaProductosFactura(HashMap<ProductoModel, Integer> listaProductosFactura) {
+    public void setListaProductosFactura(HashMap<String, Integer> listaProductosFactura) {
         this.listaProductosFactura = listaProductosFactura;
     }
 
