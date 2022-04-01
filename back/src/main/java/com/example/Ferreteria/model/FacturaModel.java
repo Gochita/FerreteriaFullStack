@@ -13,7 +13,7 @@ import java.util.Objects;
 public class FacturaModel {
 
     @Id
-    @NonNull private Integer idFactura;
+    @NonNull private String idFactura;
     @NonNull private Integer consec;
     @NonNull private LocalDate fechaFactura;
     @NonNull private String nombreVendedor;
@@ -35,11 +35,11 @@ public class FacturaModel {
     public FacturaModel() {
     }
 
-    public Integer getIdFactura() {
+    public String getIdFactura() {
         return idFactura;
     }
 
-    public void setIdFactura(Integer idFactura) {
+    public void setIdFactura(String idFactura) {
         this.idFactura = idFactura;
     }
 
