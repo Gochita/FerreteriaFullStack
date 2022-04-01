@@ -22,7 +22,7 @@ public class ProveedorController {
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<ProveedorModel> save(@RequestBody ProveedorDTO proveedorDTO){
         var proveedor= mapper.map(proveedorDTO, ProveedorModel.class);
-        return this.proveedorService.save(proveedor);
+        return this.proveedorService.saveProveedor(proveedor);
 
     }
     @GetMapping("/listarProveedores")
@@ -37,9 +37,9 @@ public class ProveedorController {
     }
     @DeleteMapping("/eliminarProveedor/{id}")
     public Mono<ProveedorModel> delete(@PathVariable("id")String proovedorId){
-        return this.proveedorService.eliminar(proovedorId);
+        return this.proveedorService.eliminarProveedor(proovedorId);
     }
-    @PutMapping("/actualiazr/{id}")
+    @PutMapping("/actualizar/{id}")
     public Mono<ProveedorModel> update(@PathVariable("id") String id,@RequestBody ProveedorDTO proveedorDTO){
         var proveedor=mapper.map(proveedorDTO, ProveedorModel.class);
         return this.proveedorService.actualizarProveedor(id,proveedor);

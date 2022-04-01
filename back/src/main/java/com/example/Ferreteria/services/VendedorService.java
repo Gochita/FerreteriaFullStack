@@ -17,7 +17,7 @@ public class VendedorService {
     public VendedorService(ModelMapper mapper) {
         this.mapper = mapper;
     }
-    public Mono<VendedorModel> save(VendedorModel vendedorModel){
+    public Mono<VendedorModel> saveVendedor(VendedorModel vendedorModel){
         return this.vendedorRepository.save(vendedorModel);
     }
     public Flux<VendedorModel> listarVendedores(){
@@ -37,7 +37,7 @@ public class VendedorService {
                     v.setCedVendedor(vendedorModel.getCedVendedor());
                     v.setCelularVendedor(vendedorModel.getCelularVendedor());
                     v.setNombreVendedor(vendedorModel.getNombreVendedor());
-                    return save(v);
+                    return saveVendedor(v);
                 })
                 .switchIfEmpty(Mono.empty());
     }

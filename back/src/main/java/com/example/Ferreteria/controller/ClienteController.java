@@ -18,7 +18,7 @@ public class ClienteController {
     @Autowired
     ModelMapper mapper;
     @Autowired
-    public ClienteService clienteService;
+    ClienteService clienteService;
 
     public ClienteController(ModelMapper mapper) {
         this.mapper = mapper;
@@ -36,25 +36,25 @@ public class ClienteController {
                 .flatMap(c -> Mono.just(mapper.map(c,ClienteDTO.class)));
     }
 
-    @PostMapping("/crear")
+    @PostMapping("/crearCliente")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<ClienteModel> save(@RequestBody ClienteDTO clienteDTO) {
+    public Mono<ClienteModel> saveClient(@RequestBody ClienteDTO clienteDTO) {
         var cliente = mapper.map(clienteDTO, ClienteModel.class);
 
-        return this.clienteService.save(cliente);
+        return this.clienteService.saveClient(cliente);
 
     }
 
-    @DeleteMapping("/eliminarPorId/{id}")
+    @DeleteMapping("/eliminarClientePorId/{id}")
     //@ResponseStatus(HttpStatus.OK)
-    public Mono<ClienteModel> delete(@PathVariable("id") String clienteId) {
-        return this.clienteService.eliminar(clienteId);
+    public Mono<ClienteModel> deleteCliente(@PathVariable("id") String clienteId) {
+        return this.clienteService.eliminarCliente(clienteId);
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/actualizarCliente/{id}")
     public Mono<ClienteModel> update(@PathVariable("id") String id, @RequestBody ClienteDTO clienteDTO) {
       var cliente= mapper.map(clienteDTO, ClienteModel.class);
-      return this.clienteService.actualizar(id,cliente);
+      return this.clienteService.actualizarCliente(id,cliente);
 
 
     }

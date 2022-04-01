@@ -10,22 +10,20 @@ import java.util.Objects;
 @Data
 public class FacturaDTO {
     private Integer idFactura;
+    private Integer consec;
     private LocalDate fechaFactura;
     private String nombreVendedor;
     private String nombreCliente;
     private int totalPagar;
     private HashMap<ProductoDTO, Integer> listaProductosFactura;
 
-    public FacturaDTO(Integer idFactura, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, int totalPagar, HashMap<ProductoDTO, Integer> listaProductosFactura) {
-        this.idFactura = idFactura;
+    public FacturaDTO(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, int totalPagar, HashMap<ProductoDTO, Integer> listaProductosFactura) {
+        this.consec = consec;
         this.fechaFactura = fechaFactura;
         this.nombreVendedor = nombreVendedor;
         this.nombreCliente = nombreCliente;
         this.totalPagar = totalPagar;
         this.listaProductosFactura = listaProductosFactura;
-    }
-
-    public FacturaDTO() {
     }
 
     public Integer getIdFactura() {
@@ -34,6 +32,14 @@ public class FacturaDTO {
 
     public void setIdFactura(Integer idFactura) {
         this.idFactura = idFactura;
+    }
+
+    public Integer getConsec() {
+        return consec;
+    }
+
+    public void setConsec(Integer consec) {
+        this.consec = consec;
     }
 
     public LocalDate getFechaFactura() {
@@ -79,12 +85,13 @@ public class FacturaDTO {
     @Override
     public String toString() {
         return "FacturaDTO{" +
-                "idFacturaDTO=" + idFactura +
-                ", fechaFacturaDTO=" + fechaFactura +
-                ", nombreVendedorDTO='" + nombreVendedor + '\'' +
-                ", nombreClienteDTO='" + nombreCliente + '\'' +
+                "idFactura=" + idFactura +
+                ", consec=" + consec +
+                ", fechaFactura=" + fechaFactura +
+                ", nombreVendedor='" + nombreVendedor + '\'' +
+                ", nombreCliente='" + nombreCliente + '\'' +
                 ", totalPagar=" + totalPagar +
-                ", listaProductosFacturaDTO=" + listaProductosFactura +
+                ", listaProductosFactura=" + listaProductosFactura +
                 '}';
     }
 
@@ -93,11 +100,11 @@ public class FacturaDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FacturaDTO that = (FacturaDTO) o;
-        return totalPagar == that.totalPagar && Objects.equals(idFactura, that.idFactura) && Objects.equals(fechaFactura, that.fechaFactura) && Objects.equals(nombreVendedor, that.nombreVendedor) && Objects.equals(nombreCliente, that.nombreCliente) && Objects.equals(listaProductosFactura, that.listaProductosFactura);
+        return totalPagar == that.totalPagar && Objects.equals(idFactura, that.idFactura) && Objects.equals(consec, that.consec) && Objects.equals(fechaFactura, that.fechaFactura) && Objects.equals(nombreVendedor, that.nombreVendedor) && Objects.equals(nombreCliente, that.nombreCliente) && Objects.equals(listaProductosFactura, that.listaProductosFactura);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idFactura, fechaFactura, nombreVendedor, nombreCliente, totalPagar, listaProductosFactura);
+        return Objects.hash(idFactura, consec, fechaFactura, nombreVendedor, nombreCliente, totalPagar, listaProductosFactura);
     }
 }

@@ -20,7 +20,7 @@ public class ProveedorService {
         this.mapper = mapper;
     }
 
-    public Mono<ProveedorModel> save(ProveedorModel proveedorModel) {
+    public Mono<ProveedorModel> saveProveedor(ProveedorModel proveedorModel) {
         ProveedorModel proveedorModel1 = new ProveedorModel();
          proveedorModel1.setNombreProveedor(proveedorModel.getNombreProveedor());
          proveedorModel1.setTelefonoProveedor(proveedorModel.getTelefonoProveedor());
@@ -35,7 +35,7 @@ public class ProveedorService {
     public Mono<ProveedorModel> traerProveedor(String id) {
         return this.proveedorRepository.findById(id);
     }
-    public Mono<ProveedorModel> eliminar(String id){
+    public Mono<ProveedorModel> eliminarProveedor(String id){
         return this.proveedorRepository.findById(id)
                 .flatMap(p -> this.proveedorRepository
                         .deleteById(p.getIdProveedor())
@@ -48,7 +48,7 @@ public class ProveedorService {
                     p.setNombreProveedor(proveedorModel.getNombreProveedor());
                     p.setCedProveedor(proveedorModel.getCedProveedor());
                     p.setTelefonoProveedor(proveedorModel.getTelefonoProveedor());
-                    return save(p);
+                    return saveProveedor(p);
                 })
                 .switchIfEmpty(Mono.empty());
     }

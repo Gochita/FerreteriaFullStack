@@ -39,16 +39,16 @@ public class VendedorController {
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<VendedorModel> save(@RequestBody VendedorDTO vendedorDTO){
         var vendedor=mapper.map(vendedorDTO, VendedorModel.class);
-        return this.vendedorService.save(vendedor);
+        return this.vendedorService.saveVendedor(vendedor);
     }
 
     @DeleteMapping("/eliminarVendedorPorId/{id}")
-    public Mono<VendedorModel> delete(@PathVariable("id") String vendedorId){
+    public Mono<VendedorModel> deleteVendedor(@PathVariable("id") String vendedorId){
         return this.vendedorService.eliminarVendedor(vendedorId);
     }
 
     @PutMapping("/actualizarVendedor/{id}")
-    public Mono<VendedorModel> update(@PathVariable("id") String id, @RequestBody VendedorDTO vendedorDTO){
+    public Mono<VendedorModel> updateVendedor(@PathVariable("id") String id, @RequestBody VendedorDTO vendedorDTO){
         var vendedor= mapper.map(vendedorDTO, VendedorModel.class);
         return this.vendedorService.actualizarVendedor(id,vendedor);
     }

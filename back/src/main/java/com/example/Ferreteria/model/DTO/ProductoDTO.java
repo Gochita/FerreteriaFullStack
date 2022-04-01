@@ -1,6 +1,8 @@
 package com.example.Ferreteria.model.DTO;
 
 import lombok.Data;
+import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
@@ -8,10 +10,11 @@ import java.util.Objects;
 
 @Data
 public class ProductoDTO {
-    private String idProducto;
-    private String nombreProducto;
-    private double precioProducto;
-    private String idProveedor;
+    @Id
+    @NonNull private String idProducto;
+    @NonNull private String nombreProducto;
+    @NonNull private double precioProducto;
+    @NonNull private String idProveedor;
 
     public ProductoDTO(String nombreProducto, double precioProducto, String idProveedor) {
 

@@ -19,7 +19,7 @@ public class ClienteService {
         this.mapper = mapper;
     }
 
-    public Mono<ClienteModel> save(ClienteModel clienteModel) {
+    public Mono<ClienteModel> saveClient(ClienteModel clienteModel) {
         return this.clienteRepository.save(clienteModel);
     }
 
@@ -30,20 +30,20 @@ public class ClienteService {
         return this.clienteRepository.findById(id);
     }
 
-    public Mono<ClienteModel> eliminar(String id) {
+    public Mono<ClienteModel> eliminarCliente(String id) {
         return this.clienteRepository.findById(id)
-                .flatMap(c -> this.clienteRepository.deleteById(c.getIdCliente()).thenReturn(c));
+                .flatMap(c -> this.clienteRepository.deleteById(c.getIdCliente())
+                        .thenReturn(c));
 
 
     }
-
-        public Mono<ClienteModel> actualizar(String id, ClienteModel clienteModel){
+        public Mono<ClienteModel> actualizarCliente(String id, ClienteModel clienteModel){
             return this.clienteRepository.findById(id)
                     .flatMap(c -> {
                         c.setNombreCliente(clienteModel.getNombreCliente());
                         c.setTelefonoCliente(clienteModel.getTelefonoCliente());
                         c.setCedCliente(clienteModel.getCedCliente());
-                        return save(c);
+                        return saveClient(c);
                     })
                     .switchIfEmpty(Mono.empty());
         }
