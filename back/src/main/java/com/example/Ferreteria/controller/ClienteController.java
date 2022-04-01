@@ -47,8 +47,6 @@ public class ClienteController {
     }
 
     @PutMapping("/actualizar/{id}")
-
-
     public Mono<ClienteModel> update(@PathVariable("id") String id, @RequestBody ClienteDTO clienteDTO) {
       var cliente= mapper.map(clienteDTO, ClienteModel.class);
       return this.clienteService.actualizar(id,cliente);

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 import java.util.UUID;
 
-@Document(collation = "Vendedor")
+@Document(collection = "Vendedor")
 public class VendedorModel {
 
     @Id
@@ -17,8 +17,8 @@ public class VendedorModel {
     private String cedVendedor;
 
 
-    public VendedorModel(String idVendedor, String nombreVendedor, int celularVendedor, String cedVendedor) {
-        this.idVendedor = idVendedor;
+    public VendedorModel( String nombreVendedor, int celularVendedor, String cedVendedor) {
+
         this.nombreVendedor = nombreVendedor;
         this.celularVendedor = celularVendedor;
         this.cedVendedor = cedVendedor;

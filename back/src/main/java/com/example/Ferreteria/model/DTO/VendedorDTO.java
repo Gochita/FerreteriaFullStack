@@ -14,8 +14,8 @@ public class VendedorDTO {
     private int celularVendedor;
     private String cedVendedor;
 
-    public VendedorDTO(String idVendedor, String nombreVendedor, int celularVendedor, String cedVendedor) {
-        this.idVendedor = idVendedor;
+    public VendedorDTO(String nombreVendedor, int celularVendedor, String cedVendedor) {
+
         this.nombreVendedor = nombreVendedor;
         this.celularVendedor = celularVendedor;
         this.cedVendedor = cedVendedor;
