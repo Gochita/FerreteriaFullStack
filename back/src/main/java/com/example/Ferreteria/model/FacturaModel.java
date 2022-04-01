@@ -1,6 +1,7 @@
 package com.example.Ferreteria.model;
 
 
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,22 +13,26 @@ import java.util.Objects;
 public class FacturaModel {
 
     @Id
-    private Integer idFactura;
-    private Integer consec;
-    private LocalDate fechaFactura;
-    private String nombreVendedor;
-    private String nombreCliente;
-    private int totalPagar;
-    private HashMap<ProductoModel,Integer> listaProductosFactura;
+    @NonNull private Integer idFactura;
+    @NonNull private Integer consec;
+    @NonNull private LocalDate fechaFactura;
+    @NonNull private String nombreVendedor;
+    @NonNull private String nombreCliente;
+    @NonNull private String idCliente;
+    @NonNull private int totalPagar;
+    @NonNull private HashMap<ProductoModel,Integer> listaProductosFactura;
 
-    public FacturaModel(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, int totalPagar, HashMap<ProductoModel, Integer> listaProductosFactura) {
-
+    public FacturaModel(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, String idCliente, int totalPagar, HashMap<ProductoModel, Integer> listaProductosFactura) {
         this.consec = consec;
         this.fechaFactura = fechaFactura;
         this.nombreVendedor = nombreVendedor;
         this.nombreCliente = nombreCliente;
+        this.idCliente = idCliente;
         this.totalPagar = totalPagar;
         this.listaProductosFactura = listaProductosFactura;
+    }
+
+    public FacturaModel() {
     }
 
     public Integer getIdFactura() {
@@ -70,6 +75,14 @@ public class FacturaModel {
         this.nombreCliente = nombreCliente;
     }
 
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
     public int getTotalPagar() {
         return totalPagar;
     }
@@ -87,6 +100,19 @@ public class FacturaModel {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FacturaModel that = (FacturaModel) o;
+        return totalPagar == that.totalPagar && Objects.equals(idFactura, that.idFactura) && Objects.equals(consec, that.consec) && Objects.equals(fechaFactura, that.fechaFactura) && Objects.equals(nombreVendedor, that.nombreVendedor) && Objects.equals(nombreCliente, that.nombreCliente) && Objects.equals(idCliente, that.idCliente) && Objects.equals(listaProductosFactura, that.listaProductosFactura);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idFactura, consec, fechaFactura, nombreVendedor, nombreCliente, idCliente, totalPagar, listaProductosFactura);
+    }
+
+    @Override
     public String toString() {
         return "FacturaModel{" +
                 "idFactura=" + idFactura +
@@ -94,21 +120,9 @@ public class FacturaModel {
                 ", fechaFactura=" + fechaFactura +
                 ", nombreVendedor='" + nombreVendedor + '\'' +
                 ", nombreCliente='" + nombreCliente + '\'' +
+                ", idCliente='" + idCliente + '\'' +
                 ", totalPagar=" + totalPagar +
                 ", listaProductosFactura=" + listaProductosFactura +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FacturaModel that = (FacturaModel) o;
-        return totalPagar == that.totalPagar && Objects.equals(idFactura, that.idFactura) && Objects.equals(consec, that.consec) && Objects.equals(fechaFactura, that.fechaFactura) && Objects.equals(nombreVendedor, that.nombreVendedor) && Objects.equals(nombreCliente, that.nombreCliente) && Objects.equals(listaProductosFactura, that.listaProductosFactura);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idFactura, consec, fechaFactura, nombreVendedor, nombreCliente, totalPagar, listaProductosFactura);
     }
 }
