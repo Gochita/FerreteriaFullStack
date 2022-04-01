@@ -1,6 +1,7 @@
 package com.example.Ferreteria.model;
 
 
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,9 +14,9 @@ public class ClienteModel {
     @Id
     private String idCliente= UUID.randomUUID().toString().substring(0, 10);
 
-    private String nombreCliente;
-    private int telefonoCliente;
-    private String cedCliente;
+    @NonNull private String nombreCliente;
+    @NonNull private int telefonoCliente;
+    @NonNull private String cedCliente;
 
     public ClienteModel( String nombreCliente, int telefono, String cedCliente) {
 

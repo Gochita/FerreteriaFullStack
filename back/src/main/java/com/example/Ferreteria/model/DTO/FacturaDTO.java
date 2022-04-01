@@ -14,7 +14,6 @@ import java.util.Objects;
 @Data
 public class FacturaDTO {
     @Id
-    @NonNull
     private Integer idFactura;
     @NonNull private Integer consec;
     @NonNull private LocalDate fechaFactura;

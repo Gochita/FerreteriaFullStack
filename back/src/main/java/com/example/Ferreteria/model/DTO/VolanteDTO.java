@@ -1,6 +1,7 @@
 package com.example.Ferreteria.model.DTO;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import java.util.Objects;
 public class VolanteDTO {
 
     private String idVolante;
-    private String nombreProveedor;
-    private HashMap<ProductoDTO, Integer> listaProductosVolante;
-    private LocalDate fecha;
-    private String cedProveedor;
+    @NonNull private String nombreProveedor;
+    @NonNull private HashMap<ProductoDTO, Integer> listaProductosVolante;
+    @NonNull private LocalDate fecha;
+    @NonNull private String cedProveedor;
 
     public VolanteDTO(String idVolante, String nombreProveedor, HashMap<ProductoDTO, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
         this.idVolante = idVolante;

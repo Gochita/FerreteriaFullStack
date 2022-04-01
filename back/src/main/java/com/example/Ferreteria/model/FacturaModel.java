@@ -13,7 +13,7 @@ import java.util.Objects;
 public class FacturaModel {
 
     @Id
-    @NonNull private String idFactura;
+    private String idFactura;
     @NonNull private Integer consec;
     @NonNull private LocalDate fechaFactura;
     @NonNull private String nombreVendedor;

@@ -2,16 +2,19 @@ package com.example.Ferreteria.model.DTO;
 
 
 
+import lombok.NonNull;
+import org.springframework.data.annotation.Id;
+
 import java.util.Objects;
 
 
 
 public class ProveedorDTO {
-
+    @Id
     private String idProveedor;
-    private String nombreProveedor;
-    private int telefonoProveedor;
-    private String cedProveedor;
+    @NonNull private String nombreProveedor;
+    @NonNull private int telefonoProveedor;
+    @NonNull private String cedProveedor;
 
     public ProveedorDTO( String nombreProveedor, int telefonoProveedor, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;

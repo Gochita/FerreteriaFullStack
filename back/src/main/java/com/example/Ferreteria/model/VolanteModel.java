@@ -1,6 +1,7 @@
 package com.example.Ferreteria.model;
 
 
+import lombok.NonNull;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -12,10 +13,10 @@ import java.util.UUID;
 public class VolanteModel {
 
     private String idVolante= UUID.randomUUID().toString().substring(0, 10);
-    private String nombreProveedor;
-    private HashMap<ProductoModel,Integer> listaProductosVolante;
-    private LocalDate fecha;
-    private String cedProveedor;
+    @NonNull private String nombreProveedor;
+    @NonNull private HashMap<ProductoModel,Integer> listaProductosVolante;
+    @NonNull private LocalDate fecha;
+    @NonNull private String cedProveedor;
 
     public VolanteModel(String idVolante, String nombreProveedor, HashMap<ProductoModel, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
         this.idVolante = idVolante;
