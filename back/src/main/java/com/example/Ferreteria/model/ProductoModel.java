@@ -12,7 +12,7 @@ public class ProductoModel {
 
 
     @Id
-    @NonNull private String idProducto = UUID.randomUUID().toString().substring(0, 10);
+    private String idProducto = UUID.randomUUID().toString().substring(0, 10);
     @NonNull private String nombreProducto;
     @NonNull private double precioProducto;
     @NonNull private String idProveedor;

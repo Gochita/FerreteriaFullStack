@@ -11,9 +11,9 @@ import java.util.Objects;
 @Data
 public class ProductoDTO {
     @Id
-    @NonNull private String idProducto;
+    private String idProducto;
     @NonNull private String nombreProducto;
-    @NonNull private double precioProducto;
+    @NonNull private Double precioProducto;
     @NonNull private String idProveedor;
 
     public ProductoDTO(String nombreProducto, double precioProducto, String idProveedor) {
