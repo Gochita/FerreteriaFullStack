@@ -34,17 +34,20 @@ class FerreteriaApplicationTests {
 	VendedorService vendedorService;
 
 
+
  */
+
 	@Test
 	void contextLoads() {
 	}
 
 
-	/*
+/*
 	@Test
 	@DisplayName("Get/clientes success")
 	void testGetClientesSuccess() throws Exception{
-		ClienteModel clienteModel= new ClienteModel();
+
+		/*ClienteModel clienteModel= new ClienteModel();
 		clienteModel.setIdCliente("1234");
 		clienteModel.setCedCliente("56789");
 		clienteModel.setTelefonoCliente(4325734);
@@ -72,9 +75,11 @@ class FerreteriaApplicationTests {
 				.andExpect((ResultMatcher) jsonPath("[1].telefonoCliente",is("122734")))
 				.andExpect((ResultMatcher) jsonPath("[1].nombreCliente", is("Mary Doe")));
 
+		 */
+
 	}
-
-
+/*
+@Test
 	@DisplayName("Get/vendedores success")
 	void testGetVendedoresSuccess() throws Exception{
 		VendedorModel vendendorModel= new VendedorModel();
@@ -108,6 +113,8 @@ class FerreteriaApplicationTests {
 	}
 
 
-	 */
 
-}
+ */
+
+
+
