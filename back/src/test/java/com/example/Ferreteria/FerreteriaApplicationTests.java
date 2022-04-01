@@ -1,7 +1,9 @@
 package com.example.Ferreteria;
 
 import com.example.Ferreteria.model.ClienteModel;
+import com.example.Ferreteria.model.VendedorModel;
 import com.example.Ferreteria.services.ClienteService;
+import com.example.Ferreteria.services.VendedorService;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,6 +31,7 @@ class FerreteriaApplicationTests {
 
 	@MockBean
 	private ClienteService clienteService;
+	VendedorService vendedorService;
 
 	@Test
 	void contextLoads() {
@@ -63,6 +66,39 @@ class FerreteriaApplicationTests {
 				.andExpect((ResultMatcher)jsonPath("[1].cedCliente",is("345345")))
 				.andExpect((ResultMatcher) jsonPath("[1].telefonoCliente",is("122734")))
 				.andExpect((ResultMatcher) jsonPath("[1].nombreCliente", is("Mary Doe")));
+
+	}
+
+
+	@DisplayName("Get/vendedores success")
+	void testGetVendedoresSuccess() throws Exception{
+		VendedorModel vendendorModel= new VendedorModel();
+		vendendorModel.setIdVendedor("1234");
+		vendendorModel.setCedVendedor("56789");
+		vendendorModel.setCelularVendedor(4325734);
+		vendendorModel.setNombreVendedor("Diana doe");
+
+		VendedorModel vendedorModel1 = new VendedorModel();
+		vendendorModel.setIdVendedor("4567");
+		vendendorModel.setCedVendedor("98765");
+		vendendorModel.setCelularVendedor(192837);
+		vendendorModel.setNombreVendedor("Maina doe");
+
+		doReturn(Lists.newArrayList(vendendorModel,vendedorModel1)).when(vendedorService).listarVendedores();
+
+		mockMvc.perform(get("/listarVendedores"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(header().string(HttpHeaders.LOCATION,"/listarVendedores"))
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect((ResultMatcher) jsonPath("$[0].idCliente", is("1234")))
+				.andExpect((ResultMatcher)jsonPath("[0].cedCliente",is("56789")))
+				.andExpect((ResultMatcher) jsonPath("[0].telefonoCliente",is("4325734")))
+				.andExpect((ResultMatcher) jsonPath("[0].nombreCliente", is("Diana Doe")))
+				.andExpect((ResultMatcher) jsonPath("$[1].idCliente", is("4567")))
+				.andExpect((ResultMatcher)jsonPath("[1].cedCliente",is("98765")))
+				.andExpect((ResultMatcher) jsonPath("[1].telefonoCliente",is("192837")))
+				.andExpect((ResultMatcher) jsonPath("[1].nombreCliente", is("Maina Doe")));
 
 	}
 
