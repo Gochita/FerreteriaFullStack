@@ -1,12 +1,11 @@
 package com.example.Ferreteria.model.DTO;
 
 
-import lombok.Data;
 
 import java.util.Objects;
 
 
-@Data
+
 public class ProveedorDTO {
 
     private String idProveedor;
@@ -14,8 +13,7 @@ public class ProveedorDTO {
     private int telefonoProveedor;
     private String cedProveedor;
 
-    public ProveedorDTO(String idProveedor, String nombreProveedor, int telefonoProveedor, String cedProveedor) {
-        this.idProveedor = idProveedor;
+    public ProveedorDTO( String nombreProveedor, int telefonoProveedor, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.telefonoProveedor = telefonoProveedor;
         this.cedProveedor = cedProveedor;

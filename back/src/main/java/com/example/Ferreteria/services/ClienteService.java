@@ -26,6 +26,9 @@ public class ClienteService {
     public Flux<ClienteModel> listarTodos() {
         return this.clienteRepository.findAll();
     }
+    public Mono<ClienteModel> traerCliente(String id){
+        return this.clienteRepository.findById(id);
+    }
 
     public Mono<ClienteModel> eliminar(String id) {
         return this.clienteRepository.findById(id)

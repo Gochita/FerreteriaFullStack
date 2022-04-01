@@ -6,13 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 import java.util.UUID;
 
-@Document(collection = "Producto")
+@Document(collection = "Inventario")
 public class ProductoModel {
 
 
     @Id
     private String idProducto = UUID.randomUUID().toString().substring(0, 10);
-
     private String nombreProducto;
     private double precioProducto;
     private String idProveedor;
@@ -23,7 +22,6 @@ public class ProductoModel {
     public ProductoModel(String idProducto, String nombreProducto, double precioProducto, String idProveedor) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
-
         this.precioProducto = precioProducto;
         this.idProveedor = idProveedor;
     }

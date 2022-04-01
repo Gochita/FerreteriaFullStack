@@ -13,10 +13,9 @@ public class ProductoDTO {
     private double precioProducto;
     private String idProveedor;
 
-    public ProductoDTO(String idProducto, String nombreProducto, double precioProducto, String idProveedor) {
-        this.idProducto = idProducto;
-        this.nombreProducto = nombreProducto;
+    public ProductoDTO(String nombreProducto, double precioProducto, String idProveedor) {
 
+        this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.idProveedor = idProveedor;
     }

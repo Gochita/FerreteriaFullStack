@@ -23,6 +23,9 @@ public class VendedorService {
     public Flux<VendedorModel> listarVendedores(){
         return this.vendedorRepository.findAll();
     }
+    public Mono<VendedorModel> traerVendedor(String id){
+        return this.vendedorRepository.findById(id);
+    }
     public Mono<VendedorModel> eliminarVendedor(String id){
         return this.vendedorRepository.findById(id)
                 .flatMap(v -> this.vendedorRepository.deleteById(v.getIdVendedor()).thenReturn(v));

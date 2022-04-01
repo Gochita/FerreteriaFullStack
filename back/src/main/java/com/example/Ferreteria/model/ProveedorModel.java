@@ -6,19 +6,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 import java.util.UUID;
 
-@Document(collation = "Cliente")
+@Document(collection = "Proveedor")
 public class ProveedorModel {
 
 
     @Id
     private String idProveedor= UUID.randomUUID().toString().substring(0, 10);
-
     private String nombreProveedor;
     private int telefonoProveedor;
     private String cedProveedor;
 
-    public ProveedorModel(String idProveedor, String nombreProveedor, int telefonoProveedor, String cedProveedor) {
-        this.idProveedor = idProveedor;
+    public ProveedorModel(String nombreProveedor, int telefonoProveedor, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.telefonoProveedor = telefonoProveedor;
         this.cedProveedor = cedProveedor;
@@ -35,11 +33,11 @@ public class ProveedorModel {
         this.idProveedor = idProveedor;
     }
 
-    public String getNombrProveedor() {
+    public String getNombreProveedor() {
         return nombreProveedor;
     }
 
-    public void setNombrProveedor(String nombreProveedor) {
+    public void setNombreProveedor(String nombreProveedor) {
         this.nombreProveedor = nombreProveedor;
     }
 
@@ -63,7 +61,7 @@ public class ProveedorModel {
     public String toString() {
         return "ProveedorModel{" +
                 "idProveedor='" + idProveedor + '\'' +
-                ", nombrProveedor='" + nombreProveedor + '\'' +
+                ", nombreProveedor='" + nombreProveedor + '\'' +
                 ", telefonoProveedor=" + telefonoProveedor +
                 ", cedProveedor='" + cedProveedor + '\'' +
                 '}';

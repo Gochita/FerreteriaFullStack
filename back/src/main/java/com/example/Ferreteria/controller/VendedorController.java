@@ -30,6 +30,11 @@ public class VendedorController {
                 v -> Mono.just(mapper.map(v,VendedorDTO.class)));
 
     }
+    @GetMapping("/traerVendedor")
+    public Mono<VendedorDTO> traerVendedor(String id){
+        return this.vendedorService.traerVendedor(id)
+                .flatMap(v-> Mono.just(mapper.map(v,VendedorDTO.class )));
+    }
     @PostMapping("/crearVendedor")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<VendedorModel> save(@RequestBody VendedorDTO vendedorDTO){

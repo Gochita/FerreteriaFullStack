@@ -30,6 +30,11 @@ public class ClienteController {
                 Mono.just(mapper.map(c, ClienteDTO.class)));
 
     }
+    @GetMapping("/traerCliente")
+    public Mono<ClienteDTO> traerCliente(String id){
+        return this.clienteService.traerCliente(id)
+                .flatMap(c -> Mono.just(mapper.map(c,ClienteDTO.class)));
+    }
 
     @PostMapping("/crear")
     @ResponseStatus(HttpStatus.CREATED)
