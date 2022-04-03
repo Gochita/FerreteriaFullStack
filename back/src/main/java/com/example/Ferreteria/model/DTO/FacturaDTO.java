@@ -15,17 +15,17 @@ import java.util.Objects;
 public class FacturaDTO {
 
     private String idFactura;
-    private Integer consec;
-    private LocalDate fechaFactura;
-    private String nombreVendedor;
+    @NonNull private Integer consec;
+    @NonNull private LocalDate fechaFactura;
+    @NonNull private String nombreVendedor;
 
-    private String nombreCliente;
+    @NonNull private String nombreCliente;
 
-    private String idCliente;
+    @NonNull private String idCliente;
 
-    private Integer totalPagar;
+    @NonNull private Integer totalPagar;
 
-    private HashMap<String, Integer> listaProductosFactura;
+    @NonNull private HashMap<String, Integer> listaProductosFactura;
 
     public FacturaDTO(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, String idCliente, Integer totalPagar, HashMap<String, Integer> listaProductosFactura) {
         this.consec = consec;

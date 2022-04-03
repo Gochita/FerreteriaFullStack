@@ -14,7 +14,7 @@ import java.util.UUID;
 public class VolanteModel {
 
     @Id
-    @NonNull private String idVolante= UUID.randomUUID().toString().substring(0, 10);
+    private String idVolante= UUID.randomUUID().toString().substring(0, 10);
     @NonNull private String nombreProveedor;
     @NonNull private HashMap<String,Integer> listaProductosVolante;
     @NonNull private LocalDate fecha;

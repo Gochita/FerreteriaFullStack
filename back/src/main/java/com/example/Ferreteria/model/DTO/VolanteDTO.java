@@ -12,7 +12,7 @@ import java.util.Objects;
 @Data
 public class VolanteDTO {
     @Id
-    @NonNull private String idVolante;
+    private String idVolante;
     @NonNull private String nombreProveedor;
     @NonNull private HashMap<String, Integer> listaProductosVolante;
     @NonNull private LocalDate fecha;
