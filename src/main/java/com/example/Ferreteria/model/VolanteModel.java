@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -16,11 +17,11 @@ public class VolanteModel {
     @Id
     private String idVolante= UUID.randomUUID().toString().substring(0, 10);
     @NonNull private String nombreProveedor;
-    @NonNull private HashMap<String,Integer> listaProductosVolante;
+    @NonNull private List<ProductoModel> listaProductosVolante;
     @NonNull private LocalDate fecha;
     @NonNull private String cedProveedor;
 
-    public VolanteModel( String nombreProveedor, HashMap<String, Integer> listaProductosVolante, LocalDate fecha, String cedProveedor) {
+    public VolanteModel( String nombreProveedor,List<ProductoModel> listaProductosVolante, LocalDate fecha, String cedProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.listaProductosVolante = listaProductosVolante;
         this.fecha = fecha;
@@ -46,11 +47,11 @@ public class VolanteModel {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public HashMap<String, Integer> getListaProductosVolante() {
+    public List<ProductoModel> getListaProductosVolante() {
         return listaProductosVolante;
     }
 
-    public void setListaProductosVolante(HashMap<String, Integer> listaProductosVolante) {
+    public void setListaProductosVolante(List<ProductoModel>listaProductosVolante) {
         this.listaProductosVolante = listaProductosVolante;
     }
 
