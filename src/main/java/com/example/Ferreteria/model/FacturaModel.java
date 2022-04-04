@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -21,9 +22,9 @@ public class FacturaModel {
     @NonNull private String nombreCliente;
     @NonNull private String idCliente;
     @NonNull private Integer totalPagar;
-    @NonNull private HashMap<String,Integer> listaProductosFactura;
+    @NonNull private List<ProductoModel> listaProductosFactura;
 
-    public FacturaModel(@NonNull Integer consec, @NonNull LocalDate fechaFactura, @NonNull String nombreVendedor, @NonNull String nombreCliente, @NonNull String idCliente, @NonNull Integer totalPagar, @NonNull HashMap<String, Integer> listaProductosFactura) {
+    public FacturaModel(@NonNull Integer consec, @NonNull LocalDate fechaFactura, @NonNull String nombreVendedor, @NonNull String nombreCliente, @NonNull String idCliente, @NonNull Integer totalPagar, @NonNull List<ProductoModel> listaProductosFactura) {
         this.consec = consec;
         this.fechaFactura = fechaFactura;
         this.nombreVendedor = nombreVendedor;
@@ -92,11 +93,11 @@ public class FacturaModel {
         this.totalPagar = totalPagar;
     }
 
-    public HashMap<String, Integer> getListaProductosFactura() {
+    public List<ProductoModel> getListaProductosFactura() {
         return listaProductosFactura;
     }
 
-    public void setListaProductosFactura(HashMap<String, Integer> listaProductosFactura) {
+    public void setListaProductosFactura(List<ProductoModel> listaProductosFactura) {
         this.listaProductosFactura = listaProductosFactura;
     }
 

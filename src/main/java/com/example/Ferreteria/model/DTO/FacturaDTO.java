@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -25,9 +26,9 @@ public class FacturaDTO {
 
     @NonNull private Integer totalPagar;
 
-    @NonNull private HashMap<String, Integer> listaProductosFactura;
+    @NonNull private List<ProductoModel> listaProductosFactura;
 
-    public FacturaDTO(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, String idCliente, Integer totalPagar, HashMap<String, Integer> listaProductosFactura) {
+    public FacturaDTO(Integer consec, LocalDate fechaFactura, String nombreVendedor, String nombreCliente, String idCliente, Integer totalPagar, List<ProductoModel> listaProductosFactura) {
         this.consec = consec;
         this.fechaFactura = fechaFactura;
         this.nombreVendedor = nombreVendedor;
@@ -96,11 +97,11 @@ public class FacturaDTO {
         this.totalPagar = totalPagar;
     }
 
-    public HashMap<String, Integer> getListaProductosFactura() {
+    public List<ProductoModel> getListaProductosFactura() {
         return listaProductosFactura;
     }
 
-    public void setListaProductosFactura(HashMap<String, Integer> listaProductosFactura) {
+    public void setListaProductosFactura(List<ProductoModel> listaProductosFactura) {
         this.listaProductosFactura = listaProductosFactura;
     }
 
