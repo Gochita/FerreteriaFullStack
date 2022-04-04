@@ -37,6 +37,7 @@ public class FacturaDTO {
         this.listaProductosFactura = listaProductosFactura;
     }
 
+    //no me quiere desplegar esta vrg
     public FacturaDTO() {
     }
 
